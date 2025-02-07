@@ -1,0 +1,10 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        close = {"}":"{","]":"[",")":"("}
+        st = []
+        for i in s:
+            if i in close.values():
+                st.append(i)
+            elif not st or st.pop() != close[i]:
+                return False
+        return len(st) == 0  
